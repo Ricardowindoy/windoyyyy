@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<!-- <link href="3Dxuanzhuan.css" rel="stylesheet" type="text/css"> -->
+<title>3D旋转</title>
+<style>
+	*{
+	padding:0;
+	margin:0;
+}
+body{
+	perspective:1000px; 
+	background-color:#000;
+	width:100%;
+	height:100%;
+}
+.kuang{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+/*	border:5px solid red;*/
+}
+#jianbian{
+width:100%;
+height:100%;
+background:linear-gradient(45deg,#6fc7b5 0%,#13bdce 20%,#0094d9 40%,#5a3694 60%,#ee4d74 80%,#f58c58 100%);
+background-size:400%;
+background-position:0% 100%;
+animation:jianbian 4s ease-in-out infinite;
+}
+@keyframes jianbian {
+	0%{
+		background-position:0% 100%;
+	}
+	50%{
+		background-position:100% 0%;
+	}
+	100%{
+		background-position:0% 100%;
+	}
+}
+/*这里本来是让超链接图片居中用的但是div里的东西移不动所以不用这个方法*/
+/*a{
+	position:absolute;
+	top:100px;
+	left:100px;
+}*/
+#ke{
+	position:relative;
+}
+#warrapper{
+	position:relative;
+	top:0;
+	left:0;
+	width:200px;
+	height:200px;
+	transform-origin:50% 50% 200px;
+	transform-style:preserve-3d;
+	transition:2s;
+	transform: translateX(50px) translateY(300px) translateZ(50px);
+}
+.pic{
+	position:absolute;
+	top:50px;
+	left:50px;
+	height:200px;
+	width:200px;
+	transition:transform 0.3s ease-in;
+}
+#front{
+	transform:translateZ(100px);
+}
+#back{
+	transform:translateZ(-100px) rotateY(180deg);
+}
+#top{
+	transform:translateY(-100px) rotateX(90deg);
+}
+#bottom{
+	transform:translateY(100px) rotateX(-90deg);
+}
+#left{
+	transform:translateX(-100px) rotateY(-90deg);
+}
+#right{
+	transform:translateX(100px) rotateY(90deg);
+}
+.bian{
+	position:absolute;
+	border:2px solid rgb(7,168,222);
+	width:300px;
+	height:300px;
+}
+#front1{
+	transform:translateZ(150px);
+}
+#back1{
+	transform:translateZ(-150px) rotateY(180deg);
+}
+#top1{
+	transform:translateY(-150px) rotateX(90deg);
+}
+#bottom1{
+	transform:translateY(150px) rotateX(-90deg);
+}
+#left1{
+	transform:translateX(-150px) rotateY(-90deg);
+}
+#right1{
+	transform:translateX(150px) rotateY(90deg);
+}
+img{
+	width:200px;
+	height:200px;
+}
+#ke{
+	position:relative;
+	width: 400px;
+	height:700px;
+	margin:100px auto;
+	transform-style:preserve-3d;
+	/*transform:rotateX(-600deg) rotateY(13deg) rotateZ(50deg);*/
+	animation:rot 5s infinite linear;
+}
+@keyframes rot {
+	0%{
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	}
+	100%{
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+	}
+}
+#p1Text{
+	color:white;
+	font-size:25px;
+	font-weight:100;
+	position:absolute;
+	left:68%;
+	top:85%;
+}
+</style>
+</head>
+<body>
+<div id="jianbian">
+	<div id="ke">
+		<div id="warrapper">
+			<div class="bian" id="front1"></div>
+			<div class="bian" id="back1"></div>
+			<div class="bian" id="left1"></div>
+			<div class="bian" id="right1"></div>
+			<div class="bian" id="top1"></div>
+			<div class="bian" id="bottom1"></div>
+			<div class="pic" id="front">
+				<a href="http://www.baidu.com"><img src="img_1.jpg"></a>
+			</div>
+			<div class="pic" id="back"><img src="img_2.jpg">
+			</div>
+			<div class="pic" id="left"><img src="img_5.jpg">
+			</div>
+			<div class="pic" id="right"><img src="img_6.jpg">
+			</div>
+			<div class="pic" id="top"><img src="img_3.jpg">
+			</div>
+			<div class="pic" id="bottom"><img src="img_4.jpg">
+			</div>
+		</div>
+	</div>
+	<div id="p1Text">powered by——class one group four</div>
+</div>
+</body>
+</html>
